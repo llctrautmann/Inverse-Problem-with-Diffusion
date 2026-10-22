@@ -15,10 +15,10 @@ Many imaging systems such as microscopes, telescopes, cameras, MRI scanners, pro
 This projects is suitable for a student comfortable with Python and interested in machine learning, scientific imaging, or the reliability of learned models. No prior background in inverse problems or diffusion models is assumed, but it is helpful.
 
 Sources:  
-\[1\] [What are Diffusion Models? | Lil'Log](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)  
-\[2\]M. Bertero, P. Boccacci, and C. De MoI, *Introduction to Inverse Problems in Imaging*, 2nd edn. Boca Raton: CRC Press, 2021. doi: [10.1201/9781003032755](https://doi.org/10.1201/9781003032755).  
-\[3\] G. Daras *et al.*, ‘A Survey on Diffusion Models for Inverse Problems’, Sep. 30, 2024, *arXiv*: arXiv:2410.00083. doi: [10.48550/arXiv.2410.00083](https://doi.org/10.48550/arXiv.2410.00083).
-\[4\] H. Chung, J. Kim, M. T. McCann, M. L. Klasky, and J. C. Ye, ‘Diffusion Posterior Sampling for General Noisy Inverse Problems’, in *International Conference on Learning Representations (ICLR)*, 2023. *arXiv*: arXiv:2209.14687. doi: [10.48550/arXiv.2209.14687](https://doi.org/10.48550/arXiv.2209.14687).
+- \[1\] [What are Diffusion Models? | Lil'Log](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)  
+- \[2\]M. Bertero, P. Boccacci, and C. De MoI, *Introduction to Inverse Problems in Imaging*, 2nd edn. Boca Raton: CRC Press, 2021. doi: [10.1201/9781003032755](https://doi.org/10.1201/9781003032755).  
+- \[3\] G. Daras *et al.*, ‘A Survey on Diffusion Models for Inverse Problems’, Sep. 30, 2024, *arXiv*: arXiv:2410.00083. doi: [10.48550/arXiv.2410.00083](https://doi.org/10.48550/arXiv.2410.00083).
+- \[4\] H. Chung, J. Kim, M. T. McCann, M. L. Klasky, and J. C. Ye, ‘Diffusion Posterior Sampling for General Noisy Inverse Problems’, in *International Conference on Learning Representations (ICLR)*, 2023. *arXiv*: arXiv:2209.14687. doi: [10.48550/arXiv.2209.14687](https://doi.org/10.48550/arXiv.2209.14687).
 
 ## Data download
 
