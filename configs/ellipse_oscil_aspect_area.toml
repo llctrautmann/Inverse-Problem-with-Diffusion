@@ -1,0 +1,34 @@
+[paths]
+name = "./data/ellipsesV3/train"
+
+[dataset]
+n_samples = 60000
+seed = 2
+
+[canvas]
+H = 64
+W = 64
+inset = 2
+
+[sampler]
+Af_lo = 0.01 # min area an ellipse can take
+Af_hi = 0.05 # max area an ellipse can take
+Ar_lo = 1.0 # min aspect ratio
+Ar_hi = 5.0 # max aspect ratio
+log_Af = true
+log_Ar = true
+theta_lo = 0.0 # min rotation angle
+theta_hi = 360.0 # max rotation angle
+moat_pixels = 2 # 0 allows overlaps, anything larger does not
+
+[render]
+bg = 0
+ss_factor = 4
+overlap = "add" # options: "last", "max", "add"
+intensity_lo = 20
+intensity_hi = 255
+
+[generator]
+template = "oscillatory_aspect_area"
+n_ellipses = 8
+intensity = "aspect_oscillation"

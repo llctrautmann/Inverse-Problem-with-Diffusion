@@ -1,0 +1,33 @@
+[paths]
+name = "./data/ellipsesHQ_A/test"
+
+[dataset]
+n_samples = 1000
+seed = 11351
+
+[canvas]
+H = 256
+W = 256
+inset = 3
+
+[sampler]
+Af_lo = 0.01 # min Area an ellipse can take
+Af_hi = 0.05 # max Area an ellipse can take
+Ar_lo = 1.0 # min Aspect ratio of an ellipse can take
+Ar_hi = 5.0 # max Aspect ratio an ellipse can take
+log_Af = true
+log_Ar = true
+theta_lo = 0.0 # min rotation angle
+theta_hi = 360.0 # max rotation
+moat_pixels = 3  # 0 allows for overlaps, anything larger does not
+
+[render]
+bg = 0
+ss_factor = 1 # 1 produces hard edges
+overlap = "add"  # options: "last", "max", "add"
+intensity_lo = 50
+intensity_hi = 255
+
+[generator]
+template = "default"
+n_ellipses = 8
