@@ -3,11 +3,12 @@
 ## Understanding Reconstruction and Uncertainty in Imaging Inverse Problems
 ---
 
-Example `summary.png` for a measurement with a hidden central box (`box_mask`, `side_fraction = 0.4`). Top row, left to right: ground truth, measurement, mean of the reconstructions, spread across
- the reconstructions (bright where they disagree). Below: the 8 individual reconstructions. Outside the hidden box they all agree with the data; inside it each one invents a different ellipse, and
- the spread image shows where.
+![Reconstructions from four degradations: ground truth, measurement, mean and spread](docs/overview.png)
 
-![Reconstruction summary](docs/overview.png)
+*Reconstructions from four kinds of degraded measurement of the same image, each row one degradation (top to bottom: Gaussian blur, 4x downsampling, 70% of the pixels removed at random, a hidden central box). 
+Columns, left to right: ground truth, measurement, mean of 8 reconstructions, and the spread across them (bright where the reconstructions disagree).*
+
+## Brief
 
 Many imaging systems such as microscopes, telescopes, cameras, MRI scanners, produce blurred or incomplete measurements, and recovering the underlying image is an ill-posed problem with no unique solution. Modern methods address this by combining the measurement with a learned generative prior, which fills in what the data cannot determine. This raises a question that matters wherever such reconstructions inform a decision: when the data is insufficient, does the method admit uncertainty, or does it confidently invent plausible detail that was never there? This project investigates that question in a controlled setting. The student will be given a working reconstruction pipeline, a trained diffusion prior, and a generator for a synthetic dataset of simple geometric objects whose ground-truth parameters are known exactly. Because the true object is described by a small number of known latent parameters (i.e. centre, semi-axes, rotation, intensity), reconstruction quality can be assessed directly in terms of whether the object itself was recovered. The student will design and run experiments that progressively degrade the measurements, measure how recovery fails, and characterise whether the spread across repeated reconstructions provides an honest signal of when the result should not be trusted. The work is primarily experimental: the core deliverables are an object-fitting and evaluation framework, a systematic set of experiments, and an analysis of where the method remains reliable and where it fails.
 
