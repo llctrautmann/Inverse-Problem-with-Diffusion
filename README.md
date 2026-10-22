@@ -22,15 +22,19 @@ Sources:
 
 ## Data download
 
-The training images are not in the repository.
+The training and test images are not in the repository.
 
 1. Download the dataset from: [link](https://drive.google.com/drive/folders/16CufwMM_-FzcnRPBdXBecw3YhpRye9Mv?usp=sharing)
-2. Unpack it so the PNG files sit directly in `data/ellipses/train/`:
+2. Unpack it so the PNG files sit directly in `data/ellipses/train/` (used to train the prior) and `data/ellipses/test/` (held-out images for the reconstruction experiments):
 
 ```
 data/
 └── ellipses/
-    └── train/
+    ├── train/
+    │   ├── 000000.png
+    │   ├── 000001.png
+    │   └── ...
+    └── test/
         ├── 000000.png
         ├── 000001.png
         └── ...
