@@ -73,13 +73,11 @@ class Trainer:
             )
             progress_bar.set_description(f"Epoch {epoch}")
 
-            # NOTE set should_save condition
             should_save = (
                 (epoch + 1) % self.config.save_model_epochs == 0
                 or epoch == self.config.num_epochs - 1
             )
 
-            # INFO: Training loop for MLL training starts here
             for step, batch in enumerate(self.train_dataloader):
                 clean_images = batch  # (B, C, H, W) in [-1, 1], see data.py
                 noise = torch.randn(clean_images.shape, device=clean_images.device)
@@ -92,16 +90,12 @@ class Trainer:
                     device=clean_images.device,
                     dtype=torch.int64,
                 )
-
-                # INFO: Add noise to images (forward diffusion)
-                # WARN: Not sure if this needs to be changed @ sometime
                 noisy_images = self.scheduler.add_noise(clean_images, noise, timesteps)
 
                 with accelerator.accumulate(self.model):
-                    # TODO: Check in notebook what the 0th, 1st, ... outputs are.
                     noise_pred = self.model(
                         noisy_images, timesteps, return_dict=False
-                    )[  # NOTE: return_dict=false returns a tuple (sample, ...)
+                    )[
                         0
                     ]
 
@@ -126,19 +120,14 @@ class Trainer:
                     global_step += 1
 
 
-
-            # NOTE: Weight saving, post training
             if accelerator.is_main_process:
                 if should_save:
                     pipeline = DDPMPipeline(
                         unet=accelerator.unwrap_model(self.model),
                         scheduler=self.scheduler,
                     )
-                    # NOTE: save inference weights
                     pipeline.save_pretrained(self.config.output_dir)
 
-                    # NOTE: save all states variables
-                    # WARN: This will bloat the upload to 1.82 GB
                     if self.config.save_full_state:
                         accelerator.save_state(
                             output_dir=os.path.join(
@@ -148,7 +137,6 @@ class Trainer:
 
                     self.evaluate(epoch, pipeline, accelerator)
 
-                    # NOTE Model saving on hub
                     if self.config.push_to_hub and (
                         epoch % 10 == 0 or epoch == self.config.num_epochs - 1
                     ):
@@ -203,7 +191,6 @@ def main(args):
     trainer.train()
 
 
-# WARN Here we set command line arguments, maybe we use hydra later.
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(

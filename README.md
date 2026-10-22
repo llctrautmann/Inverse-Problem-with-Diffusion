@@ -23,7 +23,7 @@ Sources:
 
 The training images are not in the repository.
 
-1. Download the dataset from: `<DATA_LINK>` (TODO: add link, also in `data/README.md`)
+1. Download the dataset from: [link](https://drive.google.com/drive/folders/16CufwMM_-FzcnRPBdXBecw3YhpRye9Mv?usp=sharing)
 2. Unpack it so the PNG files sit directly in `data/ellipses/train/`:
 
 ```
@@ -48,7 +48,7 @@ The trained model is not in the repository. It is a Hugging Face `diffusers` pip
 | `config.json` (UNet) | `checkpoints/ellipsesLQ/unet/config.json` |
 | `diffusion_pytorch_model.safetensors` (weights, ~434 MB) | `checkpoints/ellipsesLQ/unet/diffusion_pytorch_model.safetensors` |
 
-1. Download the files from: `<WEIGHTS_LINK>` (TODO: add link)
+1. Download the files from: [link](https://drive.google.com/drive/folders/1u_V4AXWXl326sp9DEg0O0QnQb--pf0gB?usp=drive_link) (TODO: add link)
 2. Create the folders and put each file in the place shown above. The result must look exactly like this:
 
 ```
