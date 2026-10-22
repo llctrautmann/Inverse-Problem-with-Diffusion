@@ -18,6 +18,7 @@ Sources:
 \[1\] [What are Diffusion Models? | Lil'Log](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)  
 \[2\]M. Bertero, P. Boccacci, and C. De MoI, *Introduction to Inverse Problems in Imaging*, 2nd edn. Boca Raton: CRC Press, 2021. doi: [10.1201/9781003032755](https://doi.org/10.1201/9781003032755).  
 \[3\] G. Daras *et al.*, ‘A Survey on Diffusion Models for Inverse Problems’, Sep. 30, 2024, *arXiv*: arXiv:2410.00083. doi: [10.48550/arXiv.2410.00083](https://doi.org/10.48550/arXiv.2410.00083).
+\[4\] H. Chung, J. Kim, M. T. McCann, M. L. Klasky, and J. C. Ye, ‘Diffusion Posterior Sampling for General Noisy Inverse Problems’, in *International Conference on Learning Representations (ICLR)*, 2023. *arXiv*: arXiv:2209.14687. doi: [10.48550/arXiv.2209.14687](https://doi.org/10.48550/arXiv.2209.14687).
 
 ## Data download
 
@@ -99,7 +100,7 @@ uv run tensorboard --logdir checkpoints/my_model/logs
 
 ## Run a reconstruction
 
-`reconstruct.py` takes ground-truth images, degrades them into measurements `y = A(x) + noise`, and draws several reconstructions from the diffusion prior with [DPS](src/inverse_problem_with_diffusion/dps.py). The spread across the reconstructions is the uncertainty signal.
+`reconstruct.py` takes ground-truth images, degrades them into measurements `y = A(x) + noise`, and draws several reconstructions from the diffusion prior with Diffusion Posterior Sampling ([DPS](https://arxiv.org/abs/2209.14687), implemented in [`dps.py`](src/inverse_problem_with_diffusion/dps.py)). The spread across the reconstructions is the uncertainty signal.
 
 ```bash
 uv run python -m inverse_problem_with_diffusion.reconstruct --config configs/reconstruct.toml
