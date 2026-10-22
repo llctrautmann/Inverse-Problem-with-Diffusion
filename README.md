@@ -48,7 +48,7 @@ The trained model is not in the repository. It is a Hugging Face `diffusers` pip
 | `config.json` (UNet) | `checkpoints/ellipsesLQ/unet/config.json` |
 | `diffusion_pytorch_model.safetensors` (weights, ~434 MB) | `checkpoints/ellipsesLQ/unet/diffusion_pytorch_model.safetensors` |
 
-1. Download the files from: [link](https://drive.google.com/drive/folders/1u_V4AXWXl326sp9DEg0O0QnQb--pf0gB?usp=drive_link) (TODO: add link)
+1. Download the files from: [link](https://drive.google.com/drive/folders/1u_V4AXWXl326sp9DEg0O0QnQb--pf0gB?usp=drive_link)
 2. Create the folders and put each file in the place shown above. The result must look exactly like this:
 
 ```
