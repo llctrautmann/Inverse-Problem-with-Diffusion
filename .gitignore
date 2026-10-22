@@ -10,5 +10,7 @@ wheels/
 .venv
 
 # directories
-data
-checkpoints
+data/*
+!data/README.md
+checkpoints/*
+!checkpoints/README.md
