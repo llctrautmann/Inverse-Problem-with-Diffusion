@@ -1,7 +1,6 @@
 # Inverse Problems with Diffusion
-
 ## Understanding Reconstruction and Uncertainty in Imaging Inverse Problems
----
+
 
 ![Reconstructions from four degradations: ground truth, measurement, mean and spread](docs/overview.png)
 
