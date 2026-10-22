@@ -20,6 +20,28 @@ Sources:
 - \[3\] G. Daras *et al.*, ‘A Survey on Diffusion Models for Inverse Problems’, Sep. 30, 2024, *arXiv*: arXiv:2410.00083. doi: [10.48550/arXiv.2410.00083](https://doi.org/10.48550/arXiv.2410.00083).
 - \[4\] H. Chung, J. Kim, M. T. McCann, M. L. Klasky, and J. C. Ye, ‘Diffusion Posterior Sampling for General Noisy Inverse Problems’, in *International Conference on Learning Representations (ICLR)*, 2023. *arXiv*: arXiv:2209.14687. doi: [10.48550/arXiv.2209.14687](https://doi.org/10.48550/arXiv.2209.14687).
 
+## Setup
+
+The project uses [uv](https://docs.astral.sh/uv/) to manage Python and the dependencies.
+
+1. Install uv (see the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/) for other options):
+
+```bash
+# macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+2. From the root of the repository, create the environment and install everything:
+
+```bash
+uv sync
+```
+
+This reads `pyproject.toml` and `uv.lock`, downloads the Python version in `.python-version` if you don't have it, and installs the dependencies into `.venv/`. Run commands with `uv run`, for example `uv run python -m inverse_problem_with_diffusion.reconstruct`, as shown in the sections below.
+
 ## Data download
 
 The training and test images are not in the repository.
