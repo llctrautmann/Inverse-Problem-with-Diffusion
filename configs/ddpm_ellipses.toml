@@ -1,0 +1,26 @@
+# Training config for the unconditional DDPM (see src/inverse_problem_with_diffusion/ddpm.py)
+
+data_dir = "data/ellipses/train"  # folder of .png training images
+image_size = 64
+in_channels = 1  # 1 = grayscale, 3 = RGB
+num_workers = 4
+
+# the default matches the shipped checkpoints/ellipsesLQ
+block_out_channels = [128, 128, 256, 256, 512, 512]
+num_train_timesteps = 1000
+
+train_batch_size = 64
+num_epochs = 100
+learning_rate = 1e-4
+lr_warmup_steps = 500
+gradient_accumulation_steps = 1
+seed = 42
+
+output_dir = "checkpoints/ellipses_ddpm"  # the pipeline is saved here
+save_model_epochs = 10  # also saves + samples after the last epoch
+save_full_state = false  # true also saves optimiser state (large)
+eval_batch_size = 16
+eval_num_inference_steps = 1000
+
+push_to_hub = false
+# hub_model_id = "user/model-name"

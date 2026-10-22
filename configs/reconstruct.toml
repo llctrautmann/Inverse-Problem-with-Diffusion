@@ -1,0 +1,30 @@
+# Reconstruction config (see src/inverse_problem_with_diffusion/reconstruct.py)
+
+checkpoint = "checkpoints/ellipsesLQ"  # the diffusion prior
+
+# ground-truth images: list file names in `images`, or leave it out to take the first `num_images`
+image_dir = "data/ellipses/train"
+num_images = 2
+# images = ["000056.png"]
+
+# measurement y = operator(x) + N(0, noise_sigma^2)
+# operators (see operators.py), with their parameters (bigger blur / smaller keep = harder):
+#   gaussian_blur: {sigma = 2.0}
+#   downsample:    {factor = 4}
+#   random_mask:   {keep_fraction = 0.3, seed = 0}
+#   box_mask:      {side_fraction = 0.4}
+operator = "gaussian_blur"
+operator_params = { sigma = 2.0 }
+noise_sigma = 0.01
+
+# DPS sampling
+num_samples = 8  # reconstructions per measurement; their spread is the uncertainty signal
+batch_size = 8  # lower if memory runs out
+scheduler = "ddim"  # "ddim" (fast) or "ddpm" (the training sampler, needs ~1000 steps)
+num_inference_steps = 100
+guidance_scale = 1.0
+eta = 0.0  # ddim only
+
+seed = 0
+output_dir = "outputs/reconstruction"
+device = "auto"  # auto, cuda, mps or cpu
