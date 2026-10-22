@@ -117,18 +117,3 @@ Set the experiment in `configs/reconstruct.toml`:
 | `output_dir`, `seed`, `device` | where results go, reproducibility, `auto` / `cuda` / `mps` / `cpu` |
 
 For each image, `output_dir/<image>/` gets `ground_truth.png`, `measurement.png`, one `recon_NNN.png` per sample, a `summary.png` (ground truth, measurement, mean, spread, samples) and `tensors.pt` with the raw `x_true`, `y` and `recons` in [0, 1] for evaluation. `config.json` records the settings used.
-
-Example `summary.png` for a measurement with a hidden central box (`box_mask`, `side_fraction = 0.4`). Top row, left to right: ground truth, measurement, mean of the reconstructions, spread across the reconstructions (bright where they disagree). Below: the 8 individual reconstructions. Outside the hidden box they all agree with the data; inside it each one invents a different ellipse, and the spread image shows where.
-
-![Reconstruction summary](docs/reconstruction_summary.png)
-
-To run a sweep (for example over blur strength), call `run` from Python:
-
-```python
-from dataclasses import replace
-from inverse_problem_with_diffusion.reconstruct import load_reconstruct_config, run
-
-base = load_reconstruct_config("configs/reconstruct.toml")
-for sigma in [1.0, 2.0, 4.0, 8.0]:
-    run(replace(base, operator_params={"sigma": sigma}, output_dir=f"outputs/blur_{sigma}"))
-```
